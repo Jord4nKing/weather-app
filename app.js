@@ -78,6 +78,10 @@ function buildWeatherCard(name, current, timezone_offset){
     const sunriseTime = getTime(sunrise, timezone_offset)
     const sunsetTime = getTime(sunset, timezone_offset)
 
+    console.log()
+    console.log()
+    console.log()
+
     const sunriseContainer = document.createElement('div')
     sunriseContainer.innerText = getTime(sunrise, timezone_offset)
 
