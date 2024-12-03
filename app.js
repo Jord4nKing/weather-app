@@ -84,7 +84,7 @@ function buildWeatherCard(name, current, timezone_offset){
     sunriseContainer.innerText = getTime(sunrise, timezone_offset)
 
     const sunsetContainer = document.createElement('div')
-    sunsetContainer.innerText = getTime(sunset, timezone_offset)
+    sunsetContainer.innerText = `image here${getTime(sunset, timezone_offset)}`
 
     weatherbox.innerHTML = ""
 
