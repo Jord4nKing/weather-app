@@ -78,6 +78,8 @@ function buildWeatherCard(name, current, timezone_offset){
     const sunriseTime = getTime(sunrise, timezone_offset)
     const sunsetTime = getTime(sunset, timezone_offset)
 
+    console.log(sunriseTime)
+
     const sunriseContainer = document.createElement('div')
     sunriseContainer.innerText = getTime(sunrise, timezone_offset)
 
@@ -87,8 +89,6 @@ function buildWeatherCard(name, current, timezone_offset){
     weatherbox.innerHTML = ""
 
     const conditions = weatherConditions(weather[0])
-
-    console.log(conditions)
 
     const allWeather = document.createElement('img')
     allWeather.src = `images/${conditions}.png`
@@ -150,7 +150,7 @@ function weatherConditions (condition) {
 function getTime(time, timezone_offset){
 
     const date = new Date ((time + timezone_offset) * 1000)
-    const hours = date.getUTCHours() < 10 ? '0' + date.getUTCHours(): date.getUTCHours()
+    const hours = date.getUTCHours() < 10 ? '0' + date.getUTCHours() : date.getUTCHours()
     const mins = date.getUTCMinutes() < 10 ? '0' + date.getUTCMinutes() : date.getUTCMinutes()
 
     const fullTime = `${hours}:${mins}${hours >= 12 ? "pm" : "am"}`
@@ -159,46 +159,3 @@ function getTime(time, timezone_offset){
 
 }
 
-
-
-function getGreeting(name) {
-    let greeting = `Hello ${ name || "Guest!"}`
-
-
-  
-    // if (name) {
-    //   greeting = "Hello, " + name + "!";
-    // } else {
-    //   greeting = "Hello, Guest!";
-    // }
-  
-    return greeting;
-  }
-
-  console.log(getGreeting('John'))
-  console.log(getGreeting(''))
-
-
-
-  function getDiscount(customerType, price) {
-    const discount = customerType === "member" ? 0.2 : 0.1;
-    console.log(`getDiscount("${customerType}") You will pay ${price - (price * discount)}`);
-    return discount;
-  }
-  
-  // Test:
-  getDiscount("member", 1000); // 0.2
-  getDiscount("guest", 1000);  // 0.1
-
-  function isEligibleForFreeShipping(cartTotal) {
-    
-    let eligible = cartTotal > 50 || false
-  
-    console.log(eligible)
-  }
-
-  isEligibleForFreeShipping(50)
-
-  isEligibleForFreeShipping(100)
-
-  isEligibleForFreeShipping(null)
