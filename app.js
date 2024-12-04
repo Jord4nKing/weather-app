@@ -1,4 +1,6 @@
-const apiKey = 
+import {API_KEY} from '/api.js'
+
+const apiKey = API_KEY
 
 const searchBox = document.querySelector('#location-search')
 const searchBtn = document.querySelector('#location-button')
