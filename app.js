@@ -1,6 +1,6 @@
-require('dotenv').config();
-const apiKey = process.env.API_KEY;
-console.log(apiKey);
+import {API_KEY} from '/api.js'
+
+const apiKey = API_KEY
 
 const searchBox = document.querySelector('#location-search')
 const searchBtn = document.querySelector('#location-button')
