@@ -1,11 +1,13 @@
-import {API_KEY} from '/api.js'
+// import {API_KEY} from '/api.js'
 
-const apiKey = API_KEY
+const apiKey = import.meta.env.VITE_API_KEY;
+console.log(apiKey); // Ensure this logs the correct value
+
+// const apiKey = API_KEY
 
 const searchBox = document.querySelector('#location-search')
 const searchBtn = document.querySelector('#location-button')
 const weatherbox = document.querySelector('.display')
-
 
 searchBtn.addEventListener('click', (e)=> {
     e.preventDefault()
@@ -18,7 +20,6 @@ searchBtn.addEventListener('click', (e)=> {
 
     getData(location)
 })
-
 
 async function getData(location) {
 
@@ -34,7 +35,6 @@ async function getData(location) {
         console.log(json)
         const {name, lon, lat} = json[0]
         weatherArea(name, lon, lat)
-
     }
     
     catch (err) {
@@ -117,8 +117,7 @@ function buildWeatherCard(name, current, timezone_offset){
     weatherbox.appendChild(humid)
     weatherbox.appendChild(nameLocation)
     weatherbox.appendChild(sunriseContainer)
-    weatherbox.appendChild(sunsetContainer)
-    
+    weatherbox.appendChild(sunsetContainer)    
 }
 
 function weatherConditions (condition) {
@@ -158,4 +157,5 @@ function getTime(time, timezone_offset){
     return fullTime
 
 }
+
 
